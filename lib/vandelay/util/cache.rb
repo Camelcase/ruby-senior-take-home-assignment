@@ -9,8 +9,11 @@ module Vandelay
       end
 
       def fetch_and_cache(key, expiration = 600, &block)
+        cached_result = nil
+
         cache_key = "cache:#{key}"
-        cached_result = @redis.get(cache_key)
+        # we bypass the caching for test env, it gets in the way (for this scenario)
+        cached_result = @redis.get(cache_key) unless ENV['RACK_ENV'] == 'test'
 
         if cached_result
           JSON.parse(cached_result)

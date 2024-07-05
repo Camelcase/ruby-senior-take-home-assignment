@@ -8,3 +8,10 @@ gem 'sinatra-contrib'
 gem 'puma'
 gem 'rackup'
 gem 'irb'
+
+group :test do
+  gem 'rspec'
+  gem 'rack-test'
+  gem 'webmock', require: 'webmock/rspec'
+end
+

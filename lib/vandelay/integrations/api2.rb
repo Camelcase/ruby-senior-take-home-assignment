@@ -7,7 +7,7 @@ module Vandelay
       attr_reader :base_url,  :auth_id, :auth_token, :auth_path, :records_path,:record_path
 
       def initialize
-        @auth_path =  "/auth_tokens/1"
+        @auth_path =  "/auth_tokens"
         @records_path = "/records/"
         @auth_id =  "1" # in real life auth_id would come from either config or be passed down
         @record_path = "/records/"

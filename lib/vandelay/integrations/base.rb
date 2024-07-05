@@ -26,7 +26,7 @@ module Vandelay
          token = JSON.parse(response.body)[@token_ident]
          token
        rescue StandardError => e
-         raise HttpRequestError.new(response), "Auth request failed: #{e.message}"
+         raise "Auth request failed: #{e.message}"
        end
      end
 
@@ -42,7 +42,7 @@ module Vandelay
          response = Net::HTTP.get_response(uri, get_auth_headers)
          JSON.parse(response.body)
        rescue StandardError => e
-         raise HttpRequestError.new(response), "request failed: #{e.message}"
+         raise "Request failed: #{e.message}"
        end
      end
 
